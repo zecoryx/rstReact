@@ -1,0 +1,24 @@
+useWebSocket — WebSocket orqali real vaqt rejimida ma'lumot almashish uchun ishlatiladigan React hook.
+Bu hook WebSocket ulanishini oson boshqarish va ma'lumotlarni yuborish/qabul qilish imkonini beradi.
+
+
+useWebSocket nima uchun kerak?
+🔹 Real-time ma'lumotlarni olish (chat, live notifications, stock updates, games, IoT, va h.k.)
+🔹 Server bilan doimiy ulanishni saqlash
+🔹 API ma'lumotlarini doimiy yangilash
+🔹 SignalR yoki WebRTC bilan ishlashni osonlashtirish
+
+
+useWebSocket dan qachon foydalanish kerak?
+Chat ilovalari => Ha
+Jonli yangilanishlar (live updates) => Ha
+Narxlar yoki birja kurslari => Ha
+O‘yinlar va real-time multiplayer => Ha
+Oddiy API so‘rovlari (REST, GraphQL) => Yo‘q
+
+
+useWebSocket bilan bog‘liq muammolar va ularni yechish
+Ulanish ishlamaydi =>	Server WebSocket qo‘llab-quvvatlamaydi => wss:// to‘g‘ri ishlayotganini tekshirish
+Xabar yuborilmaydi => readyState !== WebSocket.OPEN => readyState tekshirib, keyin sendMessage ishlatish
+WebSocket doimiy qayta ulanadi => useEffect har renderda qayta ishlaydi => useEffect dependency sifatida faqat url ishlatish
+

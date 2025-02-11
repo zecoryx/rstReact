@@ -1,0 +1,53 @@
+useLayoutEffect – bu React Hook, u useEffect ga o‘xshaydi, lekin asosiy farqi shundaki, u DOM o‘zgarishlarini amalga oshirishdan oldin ishlaydi.
+✅ useEffect dan oldin ishlaydi
+✅ DOM o‘zgarishlariga ta’sir qiladigan kodlar uchun ishlatiladi
+✅ Rasm, video yoki boshqa elementlar yuklanishidan oldin bajariladi
+
+useEffect va useLayoutEffect farqi
+Komponent chizib bo‘lingandan keyin ishlaydi => DOM chizilishidan oldin bajariladi
+Asinxron ishlaydi => Bloklovchi tarzda (synchronous) ishlaydi
+UI render qilishga ta’sir qilmaydi => UI renderiga bevosita ta’sir qilishi mumkin
+Foydalanuvchi ekranida o‘zgarishlar ko‘rinadi, keyin useEffect ishlaydi => O‘zgarishlar foydalanuvchi ekranda ko‘rinmasidan oldin bajariladi
+
+
+useLayoutEffect qanday ishlaydi?
+import { useLayoutEffect, useState } from "react";
+function Example() {
+  const [count, setCount] = useState(0);
+
+  useLayoutEffect(() => {
+    if (count === 0) {
+      setCount(10); // DOM yangilanishidan oldin o'zgaradi
+    }
+  }, [count]);
+
+  return <h1>{count}</h1>;
+}
+Komponent 0 ni ekranga chiqarishdan oldin setCount(10) ishlaydi.
+Agar useEffect ishlatilganida, avval 0 ko‘rinib, keyin 10 bo‘lardi.
+
+
+Qachon useLayoutEffect ishlatish kerak?
+🔹 O‘lchamlarni hisoblash (getBoundingClientRect())
+🔹 Animatsiyalar, sahifa ko‘rinishini sozlash
+🔹 Scroll yoki fokus funksiyalari
+🔹 Oldin ekranda ko‘rinadigan elementlarga ta’sir qilish
+
+
+useLayoutEffect xatoliklari va ularni oldini olish
+Rendering sekinlashib ketadi => useLayoutEffect uzoq bajariladigan kod bilan ishlatilgan => Kodni useEffectga o‘tkazish kerak
+DOM hali mavjud emas => useLayoutEffect noto‘g‘ri joyda chaqirilgan => Uni componentDidMount momentida ishlatish kerak
+Infinit loop (Too many re-renders) => useLayoutEffect ichida setState chaqirilgan => setStateni faqat kerak bo‘lsa chaqirish kerak
+
+
+7. useLayoutEffect dan qachon foydalanmaslik kerak?
+❌ Oddiy yon effektlar (useEffect yetarli bo‘lsa)
+❌ API chaqirishlar (fetch, axios)
+❌ Yuklanishdan keyingi ma’lumotlarni olish
+❌ Sekin ishlov beruvchi funksiyalar
+
+useEffect yoki useLayoutEffect tanlash
+Yon effekt (API chaqirish, log yozish, eventlar) => useEffect
+DOM element o‘lchamini olish yoki o‘zgartirish => useLayoutEffect
+Scroll yoki fokus sozlash => useLayoutEffect
+Sekin ishlaydigan kod => useEffect

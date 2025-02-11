@@ -1,0 +1,21 @@
+useContext – bu React Hook, u prop drilling muammosini hal qilish uchun ishlatiladi.
+Agar props larni har safar pastga o‘tib ketadigan qilib uzatsak, kod chalkash bo‘lib ketadi.
+useContext yordamida props uzatmasdan ma’lumotlarni istalgan komponentga yetkazish mumkin.
+
+
+useContext qachon ishlatiladi?
+✅ Global theme (mavzu) ni saqlash
+✅ Tillar (language) almashishi
+✅ Foydalanuvchi ma’lumotlari (user)
+✅ Auth (login/logout) tizimi
+✅ Redux`ni soddalashtirish uchun
+
+
+useContext bilan xatolar va ularni to‘g‘rilash
+Cannot read property 'value' of null =>  Provider ishlatilmagan =>  Provider bilan o‘rab olish
+Context value is undefined =>  createContext() noto‘g‘ri ishlatilgan =>  export/import to‘g‘ri ekanligini tekshirish
+TypeError: Cannot destructure property => value noto‘g‘ri yuborilgan =>  value={{ user }} noto‘g‘ri emasligini tekshirish
+
+useContext ishlatmaslik mumkin bo‘lgan holatlar
+🔴 Agar faqat bitta komponent foydalanadigan bo‘lsa – oddiy useState ishlatish yaxshiroq.
+🔴 Juda katta state boshqarishda Redux yoki useReducer yaxshi ishlaydi.

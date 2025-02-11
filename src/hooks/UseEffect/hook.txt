@@ -1,0 +1,12 @@
+useEffect – bu React Hook, u funksional komponentlarda yon effektlar (side effects) bajarish uchun ishlatiladi.
+Yon effektlar deganda quyidagilar tushuniladi:
+✅ API dan ma’lumot olish (fetch)
+✅ DOM bilan ishlash (elementlarga klass qo‘shish, document.title ni o‘zgartirish)
+✅ Konsolga ma’lumot chiqarish (console.log)
+✅ Vaqtinchalik kod (setTimeout, setInterval)
+✅ Event listenerlar (addEventListener, removeEventListener)
+
+
+useEffect bilan xatoliklar
+useEffect har safar render bo‘lishi =>  [] dependency array ishlatilmagan => useEffect(() => {...}, []) ishlatish
+Infinite loop (useState ichida setState) =>  useState ni useEffect ichida noto‘g‘ri ishlatish =>  useEffect(() => {...}, [state]) dan foydalanish

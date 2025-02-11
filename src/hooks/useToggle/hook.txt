@@ -1,0 +1,26 @@
+useToggle — boolean (true/false) qiymatini tez o‘zgartirish uchun ishlatiladigan maxsus hook.
+oddiy useState ni soddalashtirib, true ↔ false o‘zgarishlarini tez va oson bajarish imkonini beradi.
+
+
+useToggle qachon ishlatiladi?
+✅ Modal, sidebar, menyularni ochish/yopish
+✅ Qorong‘i/yorug‘ rejimni almashtirish
+✅ Elementlarni ko‘rsatish yoki yashirish
+✅ Tugmalar yoki faollik holatini o‘zgartirish
+
+
+useToggle bilan bog‘liq muammolar va ularning yechimi
+Dastlabki qiymat o‘rnatilmagan => initialValue ni berishni unutdingiz => useToggle(false) deb boshlash kerak
+Toggl qilish ishlamaydi => toggle funksiyasi noto‘g‘ri chaqirilgan => toggle() deb aniq chaqirish kerak
+Komponent yangilanishda noto‘g‘ri ishlaydi => useState noto‘g‘ri ishlatilgan => setState(prev => !prev) shaklida yozish kerak
+
+
+useToggle ni qachon ishlatish kerak?
+✅ Qachon kerak?
+Modal, sidebar, dropdown kabi UI elementlarini boshqarishda
+Dark mode yoki boshqa rejimlarni o‘zgartirishda
+Tugma faolligini almashtirishda
+
+❌ Qachon kerak emas?
+Ko‘p bosqichli state boshqarishda (useReducer yoki Redux yaxshiroq)
+Ko‘p qiymatli o‘zgarishlarda (useState afzalroq)

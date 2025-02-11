@@ -1,0 +1,41 @@
+useState bu React Hook bo‘lib, funksiya komponentlarida holat (state) ni boshqarish uchun ishlatiladi.
+useState har doim ikki qiymatli massiv (array) qaytaradi:
+
+
+const [state, setState] = useState("")
+Joriy holat (state) — hozirgi qiymatni o‘z ichiga oladi.
+Yangilash funksiyasi(setState) — holatni o‘zgartirish uchun ishlatiladi.
+
+
+
+4. useState ni qayerda ishlatish mumkin?
+✅ Interaktiv tugmalar → Tugma bosilganda o‘zgaruvchi qiymat.
+✅ Form elementlari → Input maydonlari (value va onChange).
+✅ API dan kelgan ma'lumotlarni saqlash → Masalan, fetch orqali kelgan ma'lumotlarni useState da saqlash.
+✅ Modallar va cheklovlar → true/false qiymatlar bilan oynalarni boshqarish.
+
+
+
+useState bilan massivlarni boshqarish
+const [items, setItems] = useState([]);
+const addItem = () => {
+  setItems([...items, { id: items.length, value: Math.random() * 10 }]);
+};
+❗ Muammo: Agar setItems(items.push(newItem)) yozilsa, React o‘zgarishni sezmaydi.
+✅ To‘g‘ri usul: setItems([...items, newItem]) – yangi massiv qaytarish kerak.
+
+
+
+useState bilan obyektlarni boshqarish
+const [user, setUser] = useState({ name: "EternityEgo", age: 16 });
+const updateAge = () => {
+  setUser({ ...user, age: user.age + 1 });
+};
+❗ Muammo: setUser({ age: user.age + 1 }) shunday yozilsa, oldingi qiymatlar yo‘qoladi.
+✅ To‘g‘ri usul: { ...user, age: user.age + 1 } – eski qiymatlarni saqlab qolish.
+
+
+useState bilan xatoliklar
+setState sinxron ishlaydi deb o‘ylash => setState asinxron ishlaydi, darhol o‘zgarish bo‘lmaydi. =>  useEffect yoki setState(prev => prev + 1) ni ishlatish.
+Massiv yoki obyekt ustida to‘g‘ridan-to‘g‘ri o‘zgarish qilish =>  React eski qiymatni yo‘qotadi. =>  setState([...state, newItem]) yoki setState({ ...state, newProp }) ni ishlatish.
+useState ni komponent tashqarisida ishlatish => Hook faqat funksional komponent ichida ishlashi kerak. => useState ni komponent ichida ishlatish.

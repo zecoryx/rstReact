@@ -1,0 +1,19 @@
+useNetwork — foydalanuvchining internetga ulanish holatini (online yoki offline) aniqlash uchun ishlatiladigan React hook.
+useNetwork nima uchun kerak?
+✅ Internet yo‘q bo‘lsa, foydalanuvchiga xabar berish
+✅ Offline rejimni qo‘llab-quvvatlash
+✅ Ulanish tezligini kuzatish va tahlil qilish
+✅ Brauzerning tarmoq holatini aniqlash (navigator.connection)
+
+
+Offline rejimni qo‘llab-quvvatlash  => Ha
+Internet yo‘q bo‘lsa, foydalanuvchini ogohlantirish => Ha
+Tarmoq tezligi va ulanish turini tekshirish => Ha
+Sayt yuklanishida internet kerak bo‘lsa => Ha
+Oddiy statik ma’lumotlar bilan ishlash => Yo‘q
+
+
+useNetwork bilan bog‘liq muammolar va ularni yechish
+Internet bor bo‘lsa ham, offline deb ko‘rsatadi => navigator.onLine noto‘g‘ri ma’lumot berishi mumkin => window.addEventListener("online", handleOnline) ishlatish kerak
+Ba’zi brauzerlar navigator.connection ni qo‘llab-quvvatlamaydi => Eski brauzerlar yoki Safari qo‘llab-quvvatlamasligi mumkin =>  Eski brauzerlarda faqat navigator.onLine ishlatish
+Internet ulanishi tez o‘zgarganda, interfeys yangilanmaydi => useState yangilanmasligi => useEffect ichida setState ishlatish

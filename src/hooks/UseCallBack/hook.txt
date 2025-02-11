@@ -1,0 +1,38 @@
+useCallback – bu React Hook, u funksiyalarni qayta yaratishdan saqlaydi.
+Har bir re-render (qayta chizish) vaqtida yangi funksiya yaratilib ketishini oldini oladi.
+useCallback funksiyani xotirada saqlaydi va faqat kerak bo‘lganda qayta yaratadi.
+
+ useCallback qachon ishlatiladi?
+✅ Katta komponentlarni optimizatsiya qilish
+✅ Re-render vaqtida funktsiyalarni qayta yaratishni oldini olish
+✅ useEffect ning dependency ([]) ro‘yxatini optimallashtirish
+✅ Child (bola) komponentga berilayotgan callback funksiyani qayta yaratmaslik uchun
+
+ useCallback qanday ishlaydi?
+const cachedFunction = useCallback(() => {
+  // Funksiya tanasi
+}, [dependency]);
+useCallback funksiyani xotirada saqlaydi va faqat [dependency] o‘zgarganda qayta yaratadi.
+Agar [dependency] bo‘sh ([]) bo‘lsa, funksiya faqat bir marta yaratiladi.
+
+useCallback bilan useMemo farqi
+Funksiya (callback) ni kechiktirib saqlaydi => 	Natijani (value) kechiktirib saqlaydi 
+Child komponentlarga beriladigan funksiyalarni optimallashtiradi => Murakkab hisob-kitoblarni optimallashtiradi
+useCallback(() => {}, [deps]) => useMemo(() => ..., [deps])
+Funksiya har doim bir xil bo‘lib qoladi =>d
+
+useCallback bilan bog‘liq xatoliklar va ularni tuzatish
+Too many re-renders => Funksiya useCallback ishlamay qoldi => [dependency] ro‘yxatini tekshirish
+useCallback ishlamaydi => Dependency o‘zgarmayapti => [dependency] ichiga kerakli o‘zgaruvchilarni qo‘shish
+Child komponent React.memo bo‘lsa ham qayta render bo‘lyapti => useCallback ishlatilmagan => Callback funksiyani useCallback bilan o‘rash
+
+useCallback ni ishlatish kerak bo‘lmagan holatlar
+🚫 Har doim useCallback ishlatish shart emas!
+✅ Faqat React.memo bilan birga ishlaganda yoki dependency`ga bog‘liq bo‘lsa ishlatish kerak.
+React.memo bilan ishlayotganda => Oddiy funksiyalar uchun
+Callbackni useEffect ichida ishlatayotganda => 	Funksiya har doim qayta yaratilib ketmayotgan bo‘lsa
+Bola komponent useCallback ishlatilmagani uchun har safar qayta render bo‘lsa => Agar komponent kichik bo‘lsa va qayta render qilish muammo bo‘lmasa
+useCallback funksiyani xotirada saqlaydi va faqat [dependency] o‘zgarganda qayta yaratadi.
+Optimallashtirish uchun React.memo bilan birga ishlatiladi.
+Bolalar (child) komponentlarga callback`lar berishda foydali.
+Ko‘p joyda kerak emas, faqat zarur bo‘lganda ishlatish kerak.

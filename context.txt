@@ -1,0 +1,18 @@
+✅ useState – State boshqarish (input, modal, dynamic content)
+✅ useEffect – Yon ta’sirlarni boshqarish (API chaqirish, event listenerlar)
+✅ useContext – Context API orqali global state boshqarish (auth, theme)
+✅ useReducer – Murakkab state boshqarish (Redux'ga o‘xshash)
+✅ useRef – DOM elementlarga yoki qiymatlarga referens yaratish
+✅ useMemo – Hisoblash resurslarini tejash, renderni optimallashtirish
+✅ useCallback – Funksiyalarni qayta yaratishdan saqlash
+✅ useLayoutEffect – DOM o‘zgarishlarini sinxron ravishda boshqarish
+✅ useIdle – Foydalanuvchi harakatsiz bo‘lsa, avtomatik logout yoki bildirishnoma
+✅ useWebSocket – Real-time monitoring va tahdidlarni aniqlash => WebSocket real-time ma'lumot uzatish uchun ishlatiladi, lekin u orqali malware yoki man-in-the-middle (MITM) hujumlari amalga oshirilishi mumkin. Shuning uchun WebSocket ulanishlarini kuzatish va xavfsizligini ta’minlash muhimdir.
+✅ useGeolocation – Foydalanuvchi joylashuvini tekshirish va ruxsat olish
+✅ useCookie – Session va tokenlarni boshqarish, xavfsiz saqlash
+✅ useClickOutside – Maxfiy ma’lumotlarni himoya qilish (modal, dropdown) useClickOutside ni cyberxavfsizlikda ishlatish imkoniyatlari: ✅ Login yoki maxfiy ma'lumotlar UI avtomatik yopilishi ✅ Keylogger va phishing xurujlarini kuzatish ✅ Shubhali harakatlarni (o‘ng bosish) bloklash
+✅ useNetwork – Internet ulanishini nazorat qilish, offline rejim
+✅ usePrevious – Oldingi state yoki prop'ni saqlash va taqqoslash
+✅ useToggle – Boolean state tez almashtirish (modal, dark mode switch)
+✅ useScroll – Sayt yoki tizimdagi harakatlarni qayd qilish useScroll foydalanuvchining sahifada pastga yoki yuqoriga aylantirayotganini aniqlash uchun ishlatiladigan hook. Bu ayniqsa shubhali harakatlarni aniqlash, botlar va odamlarni ajratish, yoki maxfiy kontentni qo‘riqlash uchun foydali bo‘lishi mumkin.
+✅ useTitle – Hujjat sarlavhasini dinamik o‘zgartirish (tab title)

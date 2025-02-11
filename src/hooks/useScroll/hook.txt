@@ -1,0 +1,24 @@
+useScroll — sahifa yoki biror elementning scroll (aylantirish) holatini kuzatib borish va kerakli harakatlarni bajarish uchun ishlatiladigan maxsus hookdir
+
+useScroll qachon ishlatiladi?
+✅ Navbar'ni fiksatsiya qilish yoki rangini o‘zgartirish (Sticky Navbar)
+✅ Element ekranga chiqqanda animatsiya qo‘shish
+✅ Sahifaning ayni paytdagi scroll holatini olish
+✅ "Yuqoriga qaytish" tugmasini faollashtirish
+✅ Infinite scrolling (cheksiz yuklash) amalga oshirish
+
+useScroll bilan bog‘liq muammolar va ularning yechimi
+ScrollY doim 0 ko‘rsatmoqda => useEffect noto‘g‘ri ishlatilgan yoki event listener o‘rnatilmagan => window.addEventListener("scroll", handleScroll) ishlatilganligiga ishonch hosil qilish kerak
+Event listener olib tashlanmadi => useEffect ichida return () => {} qismi yo‘q => window.removeEventListener("scroll", handleScroll) qo‘shish kerak
+Element ichidagi scroll ishlamaydi => useRef noto‘g‘ri berilgan => ishlatilganligiga ishonch hosil qilish kerak
+
+
+useScroll ni qachon ishlatish kerak?
+✅ Qachon kerak?
+Navbar yoki tugmalarni scroll ga qarab o‘zgartirish uchun
+Ma'lum elementning scroll holatini olish uchun
+Infinite scrolling yoki animatsiyalar qo‘shish uchun
+
+❌ Qachon kerak emas?
+Agar faqat tugmani bosish orqali scroll qilish kerak bo‘lsa (window.scrollTo())
+Animatsiyalar yoki CSS orqali oson yechiladigan muammolar uchun

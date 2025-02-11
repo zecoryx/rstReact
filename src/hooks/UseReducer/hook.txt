@@ -1,0 +1,18 @@
+useReducer – bu React Hook, u useState ning murakkabroq versiyasi.
+Agar katta va murakkab state bo‘lsa, useState kodni chalkashtirishi mumkin.
+useReducer orqali state o‘zgarishlarini markazlashtirilgan boshqarish mumkin.
+
+useReducer qachon ishlatiladi?
+✅ Murakkab state boshqarish (bir nechta o‘zgaruvchilar)
+✅ Stateni bir joyda markazlashtirish** ✅ **useState dan ko‘ra aniqroq ishlash** ✅ **Reduxni soddalashtirish
+
+useReducer qayerda ishlatiladi?
+Katta state boshqarish => Redux o‘rniga ishlatish
+Murakkab o‘zgarishlar =>  Bir nechta useState dan qochish
+Formani boshqarish => Katta formalarni soddalashtirish 
+API dan ma’lumot olish => loading, error, data ni boshqarish
+
+useReducer bilan xatolar va ularni to‘g‘rilash
+TypeError: Cannot read property 'count' of undefined => state noto‘g‘ri boshlang‘ich qiymatga ega => initialState ni tekshirish
+useReducer is not a function =>  	useReducer noto‘g‘ri import qilingan => import { useReducer } from "react"; tekshirish
+dispatch is not a function => useReducer noto‘g‘ri ishlatilgan => dispatch ni useReducer bilan chaqirish

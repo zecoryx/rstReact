@@ -1,0 +1,27 @@
+usePrevious — komponentning oldingi state yoki prop qiymatini saqlab qolish uchun ishlatiladigan maxsus hook. 
+React useState yoki useEffect kabi standart hooklar ichida oldingi qiymatni olish imkoni yo‘q, shuning uchun usePrevious ishlatiladi.
+
+
+usePrevious qachon ishlatiladi?
+✅ Oldingi state yoki prop qiymatini solishtirish
+✅ Animatsiyalar yoki tranzitsiyalarni kuzatish
+✅ Foydalanuvchi input qiymatini avvalgisi bilan taqqoslash
+✅ Komponent o‘zgarishlarini tahlil qilish
+
+
+prevValue dastlab undefined bo‘ladi => useRef ning current qiymati dastlab undefined => `prevValue
+Hook to‘g‘ri ishlamaydi => useEffect ichida noto‘g‘ri dependency qo‘yilgan => useEffect(() => { ref.current = value }, [value]); to‘g‘ri yozish kerak
+Har safar render bo‘lganda usePrevious qiymati noto‘g‘ri bo‘lishi mumkin => useRef faqat komponent to‘liq rerender bo‘lganda saqlab qoladi => useEffect dan foydalanish kerak
+
+
+usePrevious ni qachon ishlatish kerak?
+
+✅ Qachon kerak?
+Avvalgi qiymatni ko‘rsatish kerak bo‘lsa
+Oldingi va yangi state qiymatlarini taqqoslash kerak bo‘lsa
+Animatsiyalar yoki tranzitsiyalar o‘rtasidagi farqlarni hisoblash kerak bo‘lsa
+Foydalanuvchi harakatlarini kuzatish uchun
+
+❌ Qachon kerak emas?
+Agar doimiy ravishda oxirgi qiymat kerak bo‘lsa, useState ishlatish yaxshiroq.
+Agar eski qiymatni orqaga qaytarish kerak bo‘lsa, Redux yoki Context API yaxshi variant bo‘lishi mumkin.

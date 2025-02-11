@@ -1,0 +1,18 @@
+useClickOutside — foydalanuvchi tashqariga bosganda (click outside) elementni yopish yoki boshqa reaktsiyalarni qo‘zg‘atish uchun ishlatiladigan React hook.
+useClickOutside nima uchun kerak?
+✅ Modal yoki dialog oynasini yopish
+✅ Dropdown yoki context menu’ni yopish
+✅ Search panel yoki qidiruv natijalarini yashirish
+✅ Interfeysni yanada qulayroq qilish
+
+useClickOutside ni qachon ishlatish kerak?
+Modal yoki dialog oynasini yopish => Ha
+Dropdown yoki kontekst menyu yopish => Ha
+Formani bosilganda yopish => Ha
+Oddiy tugmalar uchun => Yo‘q
+Statik kontent (o‘zgarmas ma’lumotlar) => Yo‘q
+
+useClickOutside bilan bog‘liq muammolar va ularni yechish
+Tashqariga bosganda yopilmayapti => ref noto‘g‘ri elementga biriktirilgan => ref.current to‘g‘ri ekanligini tekshirish
+Hamma joyga bosganda ishlayapti => event.target ni tekshirmagan => if (!ref.current.contains(event.target)) tekshirish kerak
+Mobil qurilmalarda ishlamayapti => mousedown emas, touchstart kerak => addEventListener("touchstart", handleClickOutside) qo‘shish

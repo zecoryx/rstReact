@@ -1,0 +1,35 @@
+useMemo – bu React Hook, u murakkab hisob-kitoblarni optimallashtirish uchun ishlatiladi.
+U natijani (value) xotirada saqlaydi va faqat kerak bo‘lganda qayta hisoblaydi.
+useMemo hisob-kitob qilish vaqtini tejaydi va komponentning ishlash tezligini oshiradi.
+
+useMemo qachon ishlatiladi?
+✅ Katta massivlarni saralash, filterlash va hisoblash
+✅ Og‘ir matematik hisob-kitoblarni optimallashtirish
+✅ Har safar qayta hisoblashning oldini olish
+✅ Child komponentlarga props sifatida katta ma’lumotlarni berishda
+
+useMemo qanday ishlaydi?
+const cachedValue = useMemo(() => {
+  // Murakkab hisob-kitob
+  return natija;
+}, [dependency]);
+useMemo natijani xotirada saqlaydi va faqat [dependency] o‘zgarganda qayta hisoblaydi.
+Agar [dependency] bo‘sh ([]) bo‘lsa, faqat bir marta ishlaydi.
+
+useMemo va useCallback farqi
+Natija (value) ni xotirada saqlaydi => Funksiya (callback) ni xotirada saqlaydi
+Murakkab hisob-kitoblarni optimallashtiradi => Child komponentga beriladigan callback funksiyalarni optimallashtiradi
+useMemo(() => ..., [deps]) => useCallback(() => {}, [deps])
+Hisoblangan natijani saqlab qoladi => Funksiya har doim bir xil bo‘lib qoladi
+
+useMemo bilan bog‘liq xatoliklar va ularni tuzatish
+Too many re-renders => 	useMemo noto‘g‘ri ishlatilgan => [dependency] ro‘yxatini tekshirish
+useMemo hech qanday natija bermaydi => Notog‘ri dependency berilgan => [dependency] ichiga kerakli o‘zgaruvchilarni qo‘shish
+useMemo ishlamaydi => Uning natijasidan foydalanilmayapti => useMemodan olingan qiymatni ishlatish kerak
+
+useMemo ni ishlatish kerak bo‘lmagan holatlar
+🚫 Har doim useMemo ishlatish shart emas!
+✅ Faqat qimmat (heavy) hisob-kitoblar yoki katta massivlar bilan ishlashda ishlatish kerak.
+Og‘ir matematik hisob-kitoblarda => Oddiy va tez ishlaydigan hisob-kitoblarda
+Katta massivlarni saralash yoki filterlashda => Kichik massivlar bilan ishlaganda
+Har safar qayta hisoblashni oldini olish kerak bo‘lganda => useMemo ishlatishdan foyda bo‘lmasa

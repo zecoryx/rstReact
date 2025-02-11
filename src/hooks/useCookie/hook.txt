@@ -1,0 +1,18 @@
+useCookie — React'da cookie (brauzer fayllari) bilan ishlash uchun ishlatiladigan hook.
+Bu hook cookie saqlash, o‘qish va o‘chirishni osonlashtiradi.
+
+useCookie nima uchun kerak?
+✅ Foydalanuvchi autentifikatsiyasida (JWT token, session ID)
+✅ Foydalanuvchi sozlamalarini saqlash (til, qorong‘i rejim, tema)
+✅ Saytda xotira (state) saqlash (session yoki local storage bilan birga)
+✅ Xarid savati (shopping cart) yoki sayt sessiyasini saqlash
+
+useCookie ni qachon ishlatish kerak?
+Autentifikatsiya (JWT token, session) => Ha
+Foydalanuvchi sozlamalarini saqlash (til, tema) => Ha
+Statik (o‘zgarmas) ma'lumotlar uchun => Yo‘q
+API requestlar uchun vaqtinchalik ma'lumot saqlash =>  Yo‘q (localStorage yoki sessionStorage yaxshi variant)
+
+useCookie bilan bog‘liq muammolar va ularni yechish
+Cookie o‘qilmayapti => Cookie faqat HTTP rejimda => document.cookie ishlatilishi kerak
+Cookie noto‘g‘ri qiymat qaytaryapti => encodeURIComponent() ishlatilmagan => Cookie saqlashda encodeURIComponent() ishlatish

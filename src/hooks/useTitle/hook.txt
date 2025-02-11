@@ -1,0 +1,27 @@
+useTitle — React ilovasida brauzerning sahifa sarlavhasini (document.title) dinamik ravishda o‘zgartirish uchun ishlatiladigan hook.
+
+
+useTitle qachon ishlatiladi?
+✅ SEO (Search Engine Optimization) ni yaxshilash
+✅ Turli sahifalar uchun mos sarlavhalarni o‘rnatish
+✅ Yuklanish jarayonida "Loading..." kabi vaqtinchalik sarlavhalarni ko‘rsatish
+✅ Tab sarlavhasi orqali foydalanuvchiga xabar berish
+
+
+useTitle bilan bog‘liq muammolar va ularning yechimi
+Sarlavha o‘zgarmayapti => useEffect ishlamayapti yoki dependency [title] noto‘g‘ri => useEffect(() => { document.title = title; }, [title]) ishlatayotganingizni tekshiring
+Stolda turib qolgan sarlavha => Komponent unmount bo‘lganda sarlavha tiklanmayapti => useEffect ichida return () => { document.title = "Default"; } qo‘shing
+useTitle qayta ishga tushmayapti => Title o‘zgarmayotgani sababli useEffect trigger bo‘lmayapti => title ni useState orqali boshqarib, unga yangi qiymatlar bering
+
+
+useTitle ni qachon ishlatish kerak?
+✅ Qachon kerak?
+Sahifa sarlavhasini dinamik ravishda o‘zgartirish kerak bo‘lsa
+SEO ni yaxshilash uchun har bir sahifa o‘z sarlavhasiga ega bo‘lishi kerak bo‘lsa
+Yuklanish vaqtida "Yuklanmoqda..." yoki "Loading..." kabi matnlar chiqarish uchun
+Tab orqali foydalanuvchiga xabar berish kerak bo‘lsa
+
+
+❌ Qachon kerak emas?
+Agar sarlavha har doim bir xil bo‘lsa
+Statik sahifalar uchun (document.title = "Mening Ilovam"; bo‘lsa yetarli)

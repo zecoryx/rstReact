@@ -1,0 +1,28 @@
+useRef nima?
+useRef – bu React Hook, u DOM elementlarga bevosita murojaat qilish yoki qiymatni saqlash (xotirada saqlab qolish) uchun ishlatiladi.
+Asosiy xususiyatlari:
+✅ DOM elementlariga to‘g‘ridan-to‘g‘ri murojaat qilish
+✅ O‘zgaruvchi qiymatni qayta render qilmasdan o‘zgartirish
+✅ Oldingi qiymatni eslab qolish
+
+ useRef qachon ishlatiladi?
+🔹 input yoki boshqa HTML elementlarga fokus berish
+🔹 Komponent qayta render bo‘lganda ma’lumotni yo‘qotmaslik
+🔹 Oldingi qiymatni eslab qolish
+🔹 Interval va vaqt funksiyalarini boshqarish
+
+ useRef qanday ishlaydi?
+const refContainer = useRef(initialValue);
+useRef qaytargan obyekt { current: initialValue } ko‘rinishida bo‘ladi.
+refContainer.current orqali qiymatni o‘qish yoki o‘zgartirish mumkin.
+Qachonki ref.current o‘zgarsa ham, komponent qayta render bo‘lmaydi.
+
+useRef va useState farqi
+Qiymatni xotirada saqlaydi, lekin render qilmaydi => Qiymat o‘zgarishi bilan render qiladi
+DOM elementlarga murojaat qilish uchun ishlatiladi => UI yangilash uchun ishlatiladi
+O‘zgaruvchi ref.current orqali saqlanadi => Qiymat state o‘zgarishi orqali saqlanadi
+
+useRef bilan bog‘liq xatoliklar va ularni tuzatish
+Cannot read properties of null => useRef boshlang‘ich qiymati null, lekin .current ishlatilgan => ref.current mavjudligini tekshirish kerak
+useRef qiymati o‘zgaryapti, lekin UI yangilanmayapti => useRef render qilmayd =>Agar UI yangilanishi kerak bo‘lsa, useState ishlatish kerak
+useRef har safar yangi obyekt yaratmoqda => useRef qiymati yangilanmayapti => useRef har safar qayta ishlanmaydi, qiymatini .current orqali yangilash kerak

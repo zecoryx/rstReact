@@ -1,0 +1,23 @@
+useGeolocation — foydalanuvchining joylashuvini olish va kuzatish uchun ishlatiladigan React hook.
+Bu hook HTML5 Geolocation API yordamida ishlaydi va latitude (kenglik) hamda longitude (uzunlik) koordinatalarini olish imkonini beradi.
+
+
+useGeolocation nima uchun kerak?
+✅ Foydalanuvchining joylashuvini olish
+✅ Xaritalar (Google Maps, Leaflet, OpenStreetMap) bilan integratsiya qilish
+✅ Ob-havo ma'lumotlarini foydalanuvchining manziliga qarab ko‘rsatish
+✅ GPS-ga asoslangan xizmatlarni ta’minlash (yuk tashish, tracking, geo-marketing)
+
+
+useGeolocation dan qachon foydalanish kerak?
+Xaritalar (Google Maps, Leaflet, OpenStreetMap) => Ha
+Ob-havo ilovalari => Ha
+Foydalanuvchining manziliga asoslangan xizmatlar => Ha
+Navigatsiya va yo‘l harakati ma'lumotlari => Ha
+Statik (o‘zgarmas) ma'lumotlar uchun => Yo‘q
+
+
+useGeolocation bilan bog‘liq muammolar va ularni yechish
+Joylashuv olinmayapti => Foydalanuvchi ruxsat bermagan => Ruxsat berish so‘rovini foydalanuvchiga tushuntirish
+Koordinatalar noto‘g‘ri => GPS signal zaif yoki bloklangan => Wi-Fi yoki GPS faolligini tekshirish
+Mobil qurilmalarda ishlamaydi =>  https bo‘lishi kerak => Faqat https:// orqali sinab ko‘rish

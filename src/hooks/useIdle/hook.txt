@@ -1,0 +1,28 @@
+useIdle – foydalanuvchining harakatsiz qolganligini (idle state) aniqlovchi hook. Bu ma’lum bir vaqt oralig‘ida klaviatura, sichqoncha yoki sensor ekrandan foydalanilmasa, foydalanuvchini faol emas (idle) deb belgilaydi.
+Qanday ishlaydi?
+✅ Foydalanuvchining harakatsizligini aniqlaydi
+✅ Ma’lum vaqt o‘tgach, "idle" holatga o‘tadi
+✅ Klaviatura, sichqoncha yoki touch harakatlarini kuzatadi
+✅ Foydalanuvchi qayta harakat qilsa, "active" holatga qaytaradi
+
+useIdle nima uchun kerak?
+🔹 Avtomatik logout qilish (agar foydalanuvchi uzoq vaqt faol bo‘lmasa)
+🔹 Reklama yoki notifikatsiyalarni o‘zgartirish
+🔹 Sahifa optimizatsiyasi (masalan, resurslarni to‘xtatish)
+🔹 Dark Mode yoki boshqa UI o‘zgarishlarini qo‘llash
+
+useIdle qanday ishlaydi?
+React uchun @uidotdev/usehooks kutubxonasida useIdle mavjud. Uni o‘rnatish uchun:
+npm install @uidotdev/usehooks
+
+useIdle dan qachon foydalanish kerak?
+Foydalanuvchini avtomatik logout qilish => Ha
+Video yoki audio avtomatik pauza qilish => Ha
+Harakatsizligida notifikatsiya ko‘rsatish => Ha
+API so‘rovlarni optimallashtirish => Ha
+Doimiy interaktiv loyihalarda (chat, gaming) => Yo‘q
+
+useIdle bilan bog‘liq muammolar va ularni yechish
+Idle tez-tez aktiv bo‘lib ketadi => Vaqt juda qisqa (masalan, 1000ms) => timeout ni kattalashtirish (5000ms yoki undan ko‘p)
+Mobil brauzerlarda ishlamaydi => mousemove event ishlamaydi => 	touchstart event qo‘shish
+Logoutsiz qolib ketadi => State noto‘g‘ri ishlaydi => useEffect ichida clearTimeout() ishlatish
