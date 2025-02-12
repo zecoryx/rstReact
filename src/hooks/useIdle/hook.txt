@@ -1,4 +1,5 @@
-useIdle – foydalanuvchining harakatsiz qolganligini (idle state) aniqlovchi hook. Bu ma’lum bir vaqt oralig‘ida klaviatura, sichqoncha yoki sensor ekrandan foydalanilmasa, foydalanuvchini faol emas (idle) deb belgilaydi.
+useIdle – foydalanuvchining harakatsiz qolganligini (idle state) aniqlovchi hook. Bu ma’lum bir 
+vaqt oralig‘ida klaviatura, sichqoncha yoki sensor ekrandan foydalanilmasa, foydalanuvchini faol emas (idle) deb belgilaydi.
 Qanday ishlaydi?
 ✅ Foydalanuvchining harakatsizligini aniqlaydi
 ✅ Ma’lum vaqt o‘tgach, "idle" holatga o‘tadi

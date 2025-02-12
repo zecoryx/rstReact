@@ -56,4 +56,3 @@
 // }
 // export default Profile;
 // useContext(UserContext) orqali foydalanuvchini olish va ekranga chiqarish mumkin.
-

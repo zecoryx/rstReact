@@ -1,4 +1,5 @@
-useLayoutEffect – bu React Hook, u useEffect ga o‘xshaydi, lekin asosiy farqi shundaki, u DOM o‘zgarishlarini amalga oshirishdan oldin ishlaydi.
+useLayoutEffect – bu React Hook, u useEffect ga o‘xshaydi, lekin asosiy farqi shundaki,
+u DOM o‘zgarishlarini amalga oshirishdan oldin ishlaydi.
 ✅ useEffect dan oldin ishlaydi
 ✅ DOM o‘zgarishlariga ta’sir qiladigan kodlar uchun ishlatiladi
 ✅ Rasm, video yoki boshqa elementlar yuklanishidan oldin bajariladi
