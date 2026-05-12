@@ -1,22 +1,23 @@
 import { useReducer } from "react";
 
+const initialState = {
+  isAuthenticated: false,
+  user: null,
+};
+
+function authReducer(state, action) {
+  switch (action.type) {
+    case "login":
+      return { isAuthenticated: true, user: action.payload };
+    case "logout":
+      return { isAuthenticated: false, user: null };
+    default:
+      return state;
+  }
+}
+
 function UseReducerAuth() {
   const [state, dispatch] = useReducer(authReducer, initialState);
-  const initialState = {
-    isAuthenticated: false,
-    user: null,
-  };
-
-  function authReducer(state, action) {
-    switch (action.type) {
-      case "login":
-        return { isAuthenticated: true, user: action.payload };
-      case "logout":
-        return { isAuthenticated: false, user: null };
-      default:
-        return state;
-    }
-  }
 
   return (
     <div>

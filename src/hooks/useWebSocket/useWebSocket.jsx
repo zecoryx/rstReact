@@ -1,27 +1,50 @@
-//! useWebSocket qanday ishlaydi?
-// 🚀 React kutubxonasidan foydalanish
-// Quyidagi kutubxonani o‘rnatishingiz mumkin:
-// npm install react-use-websocket
+import { useState, useEffect, useRef, useCallback } from "react";
 
-//! Asosiy foydalanish usuli:
-// import useWebSocket from 'react-use-websocket';
+/**
+ * useWebSocket Hook:
+ * Haqiqiy vaqt rejimida (real-time) server bilan bog'lanish uchun.
+ * 
+ * @param {string} url - WebSocket server manzili
+ */
+function useWebSocket(url) {
+  const [lastMessage, setLastMessage] = useState(null);
+  const [readyState, setReadyState] = useState("CONNECTING");
+  const ws = useRef(null);
 
-// function WebSocketComponent() {
-//   const { sendMessage, lastMessage, readyState } = useWebSocket('wss://echo.websocket.org');
+  useEffect(() => {
+    try {
+      ws.current = new WebSocket(url);
 
-//   return (
-//     <div>
-//       <button onClick={() => sendMessage('Salom WebSocket!')}>
-//         Xabar yuborish
-//       </button>
-//       <p>Oxirgi xabar: {lastMessage?.data}</p>
-//       <p>Ulanish holati: {readyState}</p>
-//     </div>
-//   );
-// }
+      ws.current.onopen = () => setReadyState("OPEN");
+      ws.current.onclose = () => setReadyState("CLOSED");
+      ws.current.onmessage = (event) => setLastMessage(event.data);
+      ws.current.onerror = () => {
+        setReadyState("ERROR");
+        console.error("WebSocket connection error");
+      };
 
-// export default WebSocketComponent;
-// sendMessage — serverga ma'lumot yuboradi.
-// lastMessage — oxirgi qabul qilingan xabar.
-// readyState — WebSocket ulanish holati (ochiq, yopiq, ulanyapti va h.k.).
+      return () => {
+        if (ws.current) {
+          ws.current.onopen = null;
+          ws.current.onclose = null;
+          ws.current.onmessage = null;
+          ws.current.onerror = null;
+          ws.current.close();
+        }
+      };
+    } catch (error) {
+      setReadyState("ERROR");
+      console.error("WebSocket initialization error:", error.message);
+    }
+  }, [url]);
 
+  const sendMessage = useCallback((message) => {
+    if (ws.current.readyState === WebSocket.OPEN) {
+      ws.current.send(message);
+    }
+  }, []);
+
+  return { lastMessage, readyState, sendMessage };
+}
+
+export default useWebSocket;
